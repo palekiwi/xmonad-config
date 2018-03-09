@@ -16,6 +16,7 @@ import XMonad.Layout.Spiral
 import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.TwoPane
+import XMonad.Layout.PerWorkspace
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import Graphics.X11.ExtraTypes.XF86
@@ -100,7 +101,7 @@ myManageHook = composeAll
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts (
+l0 = avoidStruts (
     tabbed shrinkText tabConfig |||
     Full |||
     TwoPane (3/100) (1/2) |||
@@ -110,6 +111,18 @@ myLayout = avoidStruts (
     spiral (6/7)) |||
     noBorders (fullscreenFull Full)
 
+l1 = avoidStruts (
+    tabbed shrinkText tabConfig |||
+    spiral (6/7))
+
+l2 = avoidStruts (
+    tabbed shrinkText tabConfig |||
+    TwoPane (3/100) (1/2) |||
+    Full)
+
+myLayout = onWorkspace one l1 $
+           onWorkspace two l2 $
+           l0
 
 ------------------------------------------------------------------------
 -- Colors and borders
