@@ -102,17 +102,19 @@ myManageHook = composeAll
 -- which denotes layout choice.
 --
 l0 = avoidStruts (
+    ThreeColMid 1 (3/100) (1/2) |||
     tabbed shrinkText tabConfig |||
     Full |||
     TwoPane (3/100) (1/2) |||
-    ThreeColMid 1 (3/100) (1/2) |||
     Tall 1 (3/100) (1/2) |||
     Mirror (Tall 1 (3/100) (1/2)) |||
     spiral (6/7)) |||
     noBorders (fullscreenFull Full)
 
 l1 = avoidStruts (
-    tabbed shrinkText tabConfig |||
+    TwoPane (3/100) (1/2) |||
+    ThreeColMid 1 (3/100) (1/2) |||
+    Full |||
     spiral (6/7))
 
 l2 = avoidStruts (
@@ -133,12 +135,13 @@ myFocusedBorderColor = "#7C7C7C"
 
 -- Colors for text and backgrounds of each tab when in "Tabbed" layout.
 tabConfig = defaultTheme {
-    activeBorderColor = "#7C7C7C",
+    --fontName = "xft:SFNS Display:size=10,FontAwesome:size=10",
+    activeBorderColor = "#2E3436",
     activeTextColor = "#f3f4f5",
-    activeColor = "#000000",
-    inactiveBorderColor = "#7C7C7C",
+    activeColor = "#2E3436",
+    inactiveBorderColor = "#2E3436",
     inactiveTextColor = "#676E7D",
-    inactiveColor = "#000000"
+    inactiveColor = "#2E3436"
 }
 
 -- Color of current window title in xmobar.
