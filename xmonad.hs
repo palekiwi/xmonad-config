@@ -77,17 +77,19 @@ myWorkspaces = [one,two,three,four,five] ++ map show [6..9]
 -- 'className' and 'resource' are used below.
 --
 myManageHook = composeAll
-    [ className =? "Chromium"       --> doShift two
-    , className =? "Google-chrome"  --> doShift two
-    , resource  =? "desktop_window" --> doIgnore
-    , className =? "Pidgin"         --> doShift three
-    , className =? "Thunderbird"    --> doShift three
-    , className =? "Gimp"           --> doShift four
-    , className =? "Blender"        --> doShift four
-    , resource  =? "gpicview"       --> doFloat
-    , className =? "MPlayer"        --> doFloat
-    , className =? "VirtualBox"     --> doShift five
-    , className =? "stalonetray"    --> doIgnore
+    [ className =? "Chromium"           --> doShift two
+    , className =? "Google-chrome"      --> doShift two
+    , resource  =? "desktop_window"     --> doIgnore
+    , className =? "Pidgin"             --> doShift three
+    , className =? "Thunderbird"        --> doShift three
+    , className =? "Gimp"               --> doShift four
+    , className =? "Blender"            --> doShift four
+    , className =? "Vlc"                --> doShift four
+    , className =? "libreoffice-writer" --> doShift four
+    , resource  =? "gpicview"           --> doFloat
+    , className =? "MPlayer"            --> doFloat
+    , className =? "VirtualBox"         --> doShift five
+    , className =? "stalonetray"        --> doIgnore
     , isFullscreen --> (doF W.focusDown <+> doFullFloat)]
 
 
@@ -122,8 +124,19 @@ l2 = avoidStruts (
     TwoPane (3/100) (1/2) |||
     Full)
 
+l3 = avoidStruts (
+    TwoPane (3/100) (3/5) |||
+    ThreeColMid 1 (3/100) (1/2) |||
+    tabbed shrinkText tabConfig |||
+    Full |||
+    Tall 1 (3/100) (1/2) |||
+    Mirror (Tall 1 (3/100) (1/2)) |||
+    spiral (6/7)) |||
+    noBorders (fullscreenFull Full)
+
 myLayout = onWorkspace one l1 $
            onWorkspace two l2 $
+           onWorkspace three l3 $
            l0
 
 ------------------------------------------------------------------------
