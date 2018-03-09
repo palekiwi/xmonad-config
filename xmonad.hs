@@ -15,6 +15,7 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Spiral
 import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
+import XMonad.Layout.TwoPane
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import Graphics.X11.ExtraTypes.XF86
@@ -100,11 +101,12 @@ myManageHook = composeAll
 -- which denotes layout choice.
 --
 myLayout = avoidStruts (
+    tabbed shrinkText tabConfig |||
+    Full |||
+    TwoPane (3/100) (1/2) |||
     ThreeColMid 1 (3/100) (1/2) |||
     Tall 1 (3/100) (1/2) |||
     Mirror (Tall 1 (3/100) (1/2)) |||
-    tabbed shrinkText tabConfig |||
-    Full |||
     spiral (6/7)) |||
     noBorders (fullscreenFull Full)
 
@@ -228,6 +230,14 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask, xK_f),
      sendMessage $ JumpToLayout "Full")
 
+  -- Jump to TwoPane
+  , ((modMask, xK_p),
+    sendMessage $ JumpToLayout "TwoPane")
+
+  -- Jump to Tabbed
+  , ((modMask, xK_b),
+     sendMessage $ JumpToLayout "Tabbed Simplest")
+
   --  Reset the layouts on the current workspace to default.
   , ((modMask .|. shiftMask, xK_space),
      setLayout $ XMonad.layoutHook conf)
@@ -273,7 +283,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      sendMessage Expand)
 
   -- Push window back into tiling.
-  , ((modMask, xK_b),
+  , ((modMask, xK_c),
      withFocused $ windows . W.sink)
 
   -- Increment the number of windows in the master area.
