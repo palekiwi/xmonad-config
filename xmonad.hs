@@ -125,14 +125,9 @@ l2 = avoidStruts (
     Full)
 
 l3 = avoidStruts (
+    spiral (6/7) |||
     TwoPane (3/100) (3/5) |||
-    ThreeColMid 1 (3/100) (1/2) |||
-    tabbed shrinkText tabConfig |||
-    Full |||
-    Tall 1 (3/100) (1/2) |||
-    Mirror (Tall 1 (3/100) (1/2)) |||
-    spiral (6/7)) |||
-    noBorders (fullscreenFull Full)
+    ThreeColMid 1 (3/100) (1/2))
 
 myLayout = onWorkspace one l1 $
            onWorkspace two l2 $
