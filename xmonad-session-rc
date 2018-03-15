@@ -30,9 +30,10 @@ google-chrome-stable &
 
 # mate
 mate-session &
+ibus-daemon &
 
 # Start screensaver
-#killall gnome-screensaver &
+killall mate-screensaver &
 xscreensaver -no-splash &
 
 # Start sound server
