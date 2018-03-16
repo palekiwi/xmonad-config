@@ -22,15 +22,15 @@ xcompmgr -n &
 # Start the system tray
 stalonetray -c ~/.xmonad/stalonetrayrc-single &
 
-# Start two terminals
-mate-terminal &
-
-# Start a browser
-google-chrome-stable &
-
 # mate
 mate-session &
 ibus-daemon &
+
+# startup applications
+mate-terminal &
+google-chrome-stable &
+pidgin &
+thunderbird &
 
 # Start screensaver
 killall mate-screensaver &

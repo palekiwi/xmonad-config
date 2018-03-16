@@ -1,7 +1,3 @@
--- xmonad config used by Vic Fryzel
--- Author: Vic Fryzel
--- https://github.com/vicfryzel/xmonad-config
-
 import System.IO
 import System.Exit
 import XMonad hiding ( (|||) )
@@ -126,8 +122,7 @@ l2 = avoidStruts (
 
 l3 = avoidStruts (
     spiral (6/7) |||
-    TwoPane (3/100) (3/5) |||
-    ThreeColMid 1 (3/100) (1/2))
+    TwoPane (3/100) (3/5))
 
 myLayout = onWorkspace one l1 $
            onWorkspace two l2 $
