@@ -104,6 +104,7 @@ l0 = avoidStruts (
     tabbed shrinkText tabConfig |||
     Full |||
     TwoPane (3/100) (1/2) |||
+    Mirror (TwoPane (3/100) (1/2)) |||
     Tall 1 (3/100) (1/2) |||
     Mirror (Tall 1 (3/100) (1/2)) |||
     spiral (6/7)) |||
