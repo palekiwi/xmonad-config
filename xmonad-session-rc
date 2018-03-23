@@ -14,7 +14,8 @@
 #setxkbmap -option "ctrl:nocaps" &
 
 # Start a window compositor. This ensures Google Chrome paints correctly.
-xcompmgr -n &
+#xcompmgr -n &
+compton -b &
 
 # Set a wallpaper
 #feh --bg-fill ~/.wallpaper.jpg &
@@ -30,7 +31,6 @@ ibus-daemon &
 mate-terminal &
 google-chrome-stable &
 pidgin &
-thunderbird &
 
 # Start screensaver
 killall mate-screensaver &
