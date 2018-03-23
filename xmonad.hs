@@ -119,6 +119,7 @@ l1 = avoidStruts (
 l2 = avoidStruts (
     tabbed shrinkText tabConfig |||
     TwoPane (3/100) (1/2) |||
+    Tall 1 (3/100) (2/3) |||
     Full)
 
 l3 = avoidStruts (
