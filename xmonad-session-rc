@@ -13,6 +13,10 @@
 #xmodmap ~/.xmodmap
 #setxkbmap -option "ctrl:nocaps" &
 
+# mate
+mate-session &
+ibus-daemon &
+
 # Start a window compositor. This ensures Google Chrome paints correctly.
 #xcompmgr -n &
 compton -b &
@@ -23,14 +27,11 @@ compton -b &
 # Start the system tray
 stalonetray -c ~/.xmonad/stalonetrayrc-single &
 
-# mate
-mate-session &
-ibus-daemon &
-
 # startup applications
 mate-terminal &
 google-chrome-stable &
 pidgin &
+thunderbird &
 
 # Start screensaver
 killall mate-screensaver &
