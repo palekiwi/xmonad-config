@@ -353,7 +353,7 @@ myFocusFollowsMouse = True
 myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
   [
     -- mod-button1, Set the window to floating mode and move by dragging
-    ((modMask, button1),
+    ((modMask .|. shiftMask, button1),
      (\w -> focus w >> mouseMoveWindow w))
 
     -- mod-button2, Raise the window to the top of the stack
