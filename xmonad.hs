@@ -112,7 +112,8 @@ l0 = avoidStruts (
 
 l1 = avoidStruts (
     TwoPane (3/100) (1/2) |||
-    ThreeColMid 1 (3/100) (1/2) |||
+    Mirror (TwoPane (3/100) (1/2)) |||
+    Mirror (Tall 1 (3/100) (1/2)) |||
     Full |||
     spiral (6/7))
 
