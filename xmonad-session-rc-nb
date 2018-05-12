@@ -30,7 +30,6 @@ ibus-daemon &
 mate-terminal &
 google-chrome-stable &
 pidgin &
-thunderbird &
 
 # Start screensaver
 killall mate-screensaver &
