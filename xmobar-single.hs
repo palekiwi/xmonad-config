@@ -34,10 +34,10 @@ Config {
         Run Date " %a %b %_d %l:%M" "date" 10,
         --Run Com "getMasterVolume" [] "volumelevel" 10,
         Run StdinReader,
-        Run Com "python" ["/home/pawel/Apps/i3-gnome-pomodoro/pomodoro-client.py","status"] "pomodoro" 10
+        Run Com "python" ["/home/pawel/Apps/i3-gnome-pomodoro/pomodoro-client.py","status"] "pomodoro" 50
     ],
     sepChar = "%",
     alignSep = "}{",
     --template = "%StdinReader% }{ %multicpu%   %memory%   %eth0%    <fc=#b2b2ff>%volumelevel%</fc>   <fc=#FFFFCC>%date%</fc>"
-    template = "%StdinReader% }{ %pomodoro% %multicpu%   %memory%    <fc=#FFFFCC>%date%</fc>"
+    template = "%StdinReader% }{ %multicpu%   %memory%  %pomodoro%   <fc=#FFFFCC>%date%</fc>"
 }
