@@ -13,6 +13,9 @@
 #xmodmap ~/.xmodmap
 #setxkbmap -option "ctrl:nocaps" &
 
+# disable beep
+setterm -blength 0
+
 # mate
 mate-session &
 ibus-daemon &
