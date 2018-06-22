@@ -152,7 +152,8 @@ tabConfig = defaultTheme {
 }
 
 -- Color of current window title in xmobar.
-xmobarTitleColor = "#f3f4f5"
+-- xmobarTitleColor = "#f3f4f5"
+xmobarTitleColor = "#000000"
 
 -- Color of current workspace in xmobar.
 xmobarCurrentWorkspaceColor = "#666666"
