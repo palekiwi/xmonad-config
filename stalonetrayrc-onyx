@@ -15,8 +15,8 @@
 # position = display_width - (num_icons * icon_size)
 # position = 3840 - (12 * 23) = 3564
 # Example: geometry 12x1+3564
-geometry 10x1+1864
-icon_size 24
+geometry 10x1+1764
+icon_size 34
 sticky 1
 window_type dock
 dockapp_mode wmaker
