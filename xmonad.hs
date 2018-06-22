@@ -155,7 +155,7 @@ tabConfig = defaultTheme {
 xmobarTitleColor = "#f3f4f5"
 
 -- Color of current workspace in xmobar.
-xmobarCurrentWorkspaceColor = "#f3f4f5"
+xmobarCurrentWorkspaceColor = "#666666"
 
 -- Width of the window border in pixels.
 myBorderWidth = 1
