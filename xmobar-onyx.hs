@@ -15,9 +15,9 @@ Config {
     -- right_padding = num_icons * icon_size
     -- right_padding = 12 * 23 = 276
     -- Example: position = TopP 0 276
-    position = TopP 0 600,
-    font = "xft:SFNS Display:size=8,FontAwesome:size=8",
-    --font = "xft:ubuntu-8",
+    position = TopP 0 240,
+    font = "xft:SFNS Display:size=6,FontAwesome:size=6",
+    --font = "xft:ubuntu-6",
     --additionalFonts = [ "xft:FontAwesome:pixelsize=13" ],
     bgColor = "#ffffff",
     fgColor = "#000000",

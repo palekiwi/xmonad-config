@@ -15,12 +15,12 @@
 # position = display_width - (num_icons * icon_size)
 # position = 3840 - (12 * 23) = 3564
 # Example: geometry 12x1+3564
-geometry 10x1+1284
-icon_size 32
+geometry 10x1+1680
+icon_size 24
 sticky 1
 window_type dock
 dockapp_mode wmaker
 window_strut auto
 skip_taskbar 1
 icon_gravity NE
-background "#2E3436"
+background "#FFFFFF"
