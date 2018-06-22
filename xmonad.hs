@@ -42,7 +42,7 @@ myScreenshot = "screenshot"
 myLauncher = "$(yeganesh -x -- -fn 'monospace-8' -nb '#000000' -nf '#FFFFFF' -sb '#7C7C7C' -sf '#CEFFAC')"
 
 -- Location of your xmobar.hs / xmobarrc
-myXmobarrc = "~/.xmonad/xmobar-single.hs"
+myXmobarrc = "~/.xmonad/xmobar-onyx.hs"
 
 
 ------------------------------------------------------------------------
