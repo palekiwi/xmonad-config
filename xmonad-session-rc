@@ -28,7 +28,7 @@ compton -b &
 #feh --bg-fill ~/.wallpaper.jpg &
 
 # Start the system tray
-stalonetray -c ~/.xmonad/stalonetrayrc-onyx &
+stalonetray -c ~/.xmonad/stalonetrayrc-single &
 
 # startup applications
 kupfer &

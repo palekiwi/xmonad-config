@@ -42,7 +42,7 @@ myScreenshot = "screenshot"
 myLauncher = "$(yeganesh -x -- -fn 'monospace-8' -nb '#000000' -nf '#FFFFFF' -sb '#7C7C7C' -sf '#CEFFAC')"
 
 -- Location of your xmobar.hs / xmobarrc
-myXmobarrc = "~/.xmonad/xmobar-onyx.hs"
+myXmobarrc = "~/.xmonad/xmobar-single.hs"
 
 
 ------------------------------------------------------------------------
@@ -118,7 +118,6 @@ l1 = avoidStruts (
     spiral (6/7))
 
 l2 = avoidStruts (
-    tabbed shrinkText tabConfig |||
     TwoPane (3/100) (1/2) |||
     Tall 1 (3/100) (2/3) |||
     Full)
@@ -153,7 +152,7 @@ tabConfig = defaultTheme {
 
 -- Color of current window title in xmobar.
 -- xmobarTitleColor = "#f3f4f5"
-xmobarTitleColor = "#000000"
+xmobarTitleColor = "#EEEEEE"
 
 -- Color of current workspace in xmobar.
 xmobarCurrentWorkspaceColor = "#666666"
@@ -329,7 +328,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   -- TODO: update this binding with avoidStruts, ((modMask, xK_b),
 
   -- Quit xmonad.
-  , ((modMask .|. shiftMask, xK_x),
+  , ((modMask .|. shiftMask, xK_j),
      io (exitWith ExitSuccess))
 
   -- Restart xmonad.
