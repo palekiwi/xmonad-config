@@ -111,6 +111,7 @@ l0 = avoidStruts (
     noBorders (fullscreenFull Full)
 
 l1 = avoidStruts (
+    ThreeColMid 1 (3/100) (1/2) |||
     TwoPane (3/100) (1/2) |||
     Mirror (TwoPane (3/100) (1/2)) |||
     Mirror (Tall 1 (3/100) (1/2)) |||
