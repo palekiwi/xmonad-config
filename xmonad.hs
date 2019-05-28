@@ -84,7 +84,8 @@ myManageHook = composeAll
     , className =? "libreoffice-writer" --> doShift four
     , resource  =? "gpicview"           --> doFloat
     , className =? "MPlayer"            --> doFloat
-    , className =? "VirtualBox"         --> doShift five
+    , className =? "VirtualBox Manager" --> doShift five
+    , className =? "Qemu-system-x86_64" --> doShift five
     , className =? "stalonetray"        --> doIgnore
     , isFullscreen --> (doF W.focusDown <+> doFullFloat)]
 
@@ -128,9 +129,12 @@ l3 = avoidStruts (
     Full |||
     TwoPane (3/100) (3/5))
 
+l5 = noBorders (fullscreenFull Full)
+
 myLayout = onWorkspace one l1 $
            onWorkspace two l2 $
            onWorkspace three l3 $
+           onWorkspace five l5
            l0
 
 ------------------------------------------------------------------------
@@ -171,7 +175,7 @@ myBorderWidth = 1
 -- ("right alt"), which does not conflict with emacs keybindings. The
 -- "windows key" is usually mod4Mask.
 --
-myModMask = mod1Mask
+myModMask = mod3Mask
 
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   ----------------------------------------------------------------------
@@ -199,6 +203,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask .|. controlMask .|. shiftMask, xK_p),
      spawn myScreenshot)
 
+  {-
   -- Mute volume.
   , ((0, xF86XK_AudioMute),
      spawn "amixer -q set Master toggle")
@@ -222,6 +227,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   -- Increase volume.
   , ((modMask .|. controlMask, xK_k),
      spawn "amixer -q set Master 5%+")
+  -}
 
   -- Start pomodoro
   , ((modMask, xK_F10),
@@ -364,16 +370,16 @@ myFocusFollowsMouse = True
 myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
   [
     -- mod-button1, Set the window to floating mode and move by dragging
-    ((modMask .|. shiftMask, button1),
-     (\w -> focus w >> mouseMoveWindow w))
+    --((modMask .|. shiftMask, button1),
+     -- (\w -> focus w >> mouseMoveWindow w))
 
     -- mod-button2, Raise the window to the top of the stack
-    , ((modMask, button2),
-       (\w -> focus w >> windows W.swapMaster))
+    -- , ((modMask, button2),
+       -- (\w -> focus w >> windows W.swapMaster))
 
     -- mod-button3, Set the window to floating mode and resize by dragging
-    , ((modMask, button3),
-       (\w -> focus w >> mouseResizeWindow w))
+    -- , ((modMask, button3),
+       -- (\w -> focus w >> mouseResizeWindow w))
 
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
   ]
