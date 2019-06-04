@@ -183,7 +183,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   --
 
   -- Start a terminal.  Terminal to start is specified by myTerminal variable.
-  [ ((modMask .|. shiftMask, xK_Return),
+  [ ((modMask, xK_q),
      spawn $ XMonad.terminal conf)
 
   -- Lock the screen using command specified by myScreensaver.
@@ -196,11 +196,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      spawn myLauncher)
 
   -- Take a selective screenshot using the command specified by mySelectScreenshot.
-  , ((modMask .|. shiftMask, xK_p),
+  , ((modMask .|. shiftMask, xK_i),
      spawn mySelectScreenshot)
 
   -- Take a full screenshot using the command specified by myScreenshot.
-  , ((modMask .|. controlMask .|. shiftMask, xK_p),
+  , ((modMask .|. controlMask .|. shiftMask, xK_i),
      spawn myScreenshot)
 
   {-
@@ -257,7 +257,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   --
 
   -- Close focused window.
-  , ((modMask .|. shiftMask, xK_w),
+  , ((modMask, xK_x),
      kill)
 
   -- Cycle through the available layout algorithms.
@@ -265,16 +265,12 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      sendMessage NextLayout)
 
   -- Jump to full screen.
-  , ((modMask, xK_f),
+  , ((modMask, xK_d),
      sendMessage $ JumpToLayout "Full")
 
   -- Jump to TwoPane
-  , ((modMask, xK_p),
+  , ((modMask, xK_v),
     sendMessage $ JumpToLayout "TwoPane")
-
-  -- Jump to Tabbed
-  , ((modMask, xK_b),
-     sendMessage $ JumpToLayout "Tabbed Simplest")
 
   --  Reset the layouts on the current workspace to default.
   , ((modMask .|. shiftMask, xK_space),
@@ -285,19 +281,15 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      refresh)
 
   -- Move focus to the next window.
-  , ((modMask, xK_Tab),
-     windows W.focusDown)
-
-  -- Move focus to the next window.
-  , ((modMask, xK_i),
+  , ((modMask, xK_g),
      windows W.focusDown)
 
   -- Move focus to the previous window.
-  , ((modMask, xK_n),
+  , ((modMask, xK_b),
      windows W.focusUp  )
 
   -- Move focus to the master window.
-  , ((modMask, xK_w),
+  , ((modMask, xK_a),
      windows W.focusMaster  )
 
   -- Swap the focused window and the master window.
@@ -305,11 +297,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      windows W.swapMaster)
 
   -- Swap the focused window with the next window.
-  , ((modMask .|. shiftMask, xK_i),
+  , ((modMask .|. shiftMask, xK_g),
      windows W.swapDown  )
 
   -- Swap the focused window with the previous window.
-  , ((modMask .|. shiftMask, xK_n),
+  , ((modMask .|. shiftMask, xK_p),
      windows W.swapUp    )
 
   -- Shrink the master area.
@@ -340,7 +332,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      io (exitWith ExitSuccess))
 
   -- Restart xmonad.
-  , ((modMask, xK_q),
+  , ((modMask .|. shiftMask, xK_x),
      restart "xmonad" True)
   ]
   ++
@@ -348,16 +340,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   -- mod-[1..9], Switch to workspace N
   -- mod-shift-[1..9], Move client to workspace N
   [((m .|. modMask, k), windows $ f i)
-    | (i, k) <- zip (XMonad.workspaces conf) ([xK_a, xK_r, xK_s, xK_t, xK_g] ++ [xK_6 .. xK_9])
+    | (i, k) <- zip (XMonad.workspaces conf) ([xK_r, xK_s, xK_t, xK_w, xK_f, xK_p] ++ [xK_7 .. xK_9])
       , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
-  ++
-
-  -- mod-{1,2,3}, Switch to physical/Xinerama screens 1, 2, or 3
-  -- mod-shift-{1,2,3}, Move client to screen 1, 2, or 3
-  [((m .|. modMask, key), screenWorkspace sc >>= flip whenJust (windows . f))
-      | (key, sc) <- zip [xK_1, xK_2, xK_3] [0..]
-      , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
-
 
 ------------------------------------------------------------------------
 -- Mouse bindings
