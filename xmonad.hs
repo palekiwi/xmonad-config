@@ -183,7 +183,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   --
 
   -- Start a terminal.  Terminal to start is specified by myTerminal variable.
-  [ ((modMask, xK_q),
+  [ ((modMask, xK_Return),
      spawn $ XMonad.terminal conf)
 
   -- Lock the screen using command specified by myScreensaver.
@@ -257,7 +257,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   --
 
   -- Close focused window.
-  , ((modMask, xK_x),
+  , ((modMask, xK_b),
      kill)
 
   -- Cycle through the available layout algorithms.
@@ -269,7 +269,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      sendMessage $ JumpToLayout "Full")
 
   -- Jump to TwoPane
-  , ((modMask, xK_v),
+  , ((modMask, xK_x),
     sendMessage $ JumpToLayout "TwoPane")
 
   --  Reset the layouts on the current workspace to default.
@@ -285,7 +285,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      windows W.focusDown)
 
   -- Move focus to the previous window.
-  , ((modMask, xK_b),
+  , ((modMask, xK_q),
      windows W.focusUp  )
 
   -- Move focus to the master window.
@@ -293,7 +293,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      windows W.focusMaster  )
 
   -- Swap the focused window and the master window.
-  , ((modMask, xK_Return),
+  , ((modMask, xK_v),
      windows W.swapMaster)
 
   -- Swap the focused window with the next window.
