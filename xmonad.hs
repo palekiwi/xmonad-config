@@ -261,15 +261,15 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      kill)
 
   -- Cycle through the available layout algorithms.
-  , ((modMask, xK_space),
+  , ((modMask, xK_x),
      sendMessage NextLayout)
 
   -- Jump to full screen.
-  , ((modMask, xK_d),
+  , ((modMask, xK_g),
      sendMessage $ JumpToLayout "Full")
 
   -- Jump to TwoPane
-  , ((modMask, xK_x),
+  , ((modMask, xK_n),
     sendMessage $ JumpToLayout "TwoPane")
 
   --  Reset the layouts on the current workspace to default.
@@ -281,7 +281,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      refresh)
 
   -- Move focus to the next window.
-  , ((modMask, xK_g),
+  , ((modMask, xK_d),
      windows W.focusDown)
 
   -- Move focus to the previous window.
@@ -289,11 +289,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      windows W.focusUp  )
 
   -- Move focus to the master window.
-  , ((modMask, xK_v),
+  , ((modMask, xK_c),
      windows W.focusMaster  )
 
   -- Swap the focused window and the master window.
-  , ((modMask, xK_c),
+  , ((modMask, xK_v),
      windows W.swapMaster)
 
   -- Swap the focused window with the next window.
@@ -354,16 +354,16 @@ myFocusFollowsMouse = True
 myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
   [
     -- mod-button1, Set the window to floating mode and move by dragging
-    --((modMask .|. shiftMask, button1),
-     -- (\w -> focus w >> mouseMoveWindow w))
+    ((modMask .|. shiftMask, button1),
+      (\w -> focus w >> mouseMoveWindow w))
 
     -- mod-button2, Raise the window to the top of the stack
-    -- , ((modMask, button2),
-       -- (\w -> focus w >> windows W.swapMaster))
+     , ((modMask, button2),
+        (\w -> focus w >> windows W.swapMaster))
 
     -- mod-button3, Set the window to floating mode and resize by dragging
-    -- , ((modMask, button3),
-       -- (\w -> focus w >> mouseResizeWindow w))
+     , ((modMask, button3),
+        (\w -> focus w >> mouseResizeWindow w))
 
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
   ]
