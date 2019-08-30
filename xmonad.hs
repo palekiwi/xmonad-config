@@ -297,7 +297,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      windows W.swapMaster)
 
   -- Swap the focused window with the next window.
-  , ((modMask .|. shiftMask, xK_g),
+  , ((modMask .|. shiftMask, xK_d),
      windows W.swapDown  )
 
   -- Swap the focused window with the previous window.
