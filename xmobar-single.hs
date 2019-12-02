@@ -34,7 +34,7 @@ Config {
         Run Date " %a %b %_d %l:%M" "date" 10,
         --Run Com "getMasterVolume" [] "volumelevel" 10,
         Run StdinReader,
-        Run Com "python" ["/home/pawel/Apps/i3-gnome-pomodoro/pomodoro-client.py","status"] "pomodoro" 50
+        --Run Com "python" ["/home/pawel/Apps/i3-gnome-pomodoro/pomodoro-client.py","status"] "pomodoro" 50
     ],
     sepChar = "%",
     alignSep = "}{",
