@@ -19,16 +19,16 @@ Config {
     font = "xft:SFNS Display:size=10,FontAwesome:size=10",
     --font = "xft:ubuntu-10",
     --additionalFonts = [ "xft:FontAwesome:pixelsize=13" ],
-    bgColor = "#2E3436",
-    fgColor = "#676E7D",
+    bgColor = "#2F343F",
+    fgColor = "#BABDB6",
     lowerOnStart = False,
     overrideRedirect = False,
     allDesktops = True,
     persistent = True,
     commands = [
         --Run Weather "KPAO" ["-t","<tempF>F <skyCondition>","-L","64","-H","77","-n","#CEFFAC","-h","#FFB6B0","-l","#96CBFE"] 36000,
-        Run MultiCpu ["-t","<total0> <total1> <total2> <total3>","-L","30","-H","60","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC","-w","3"] 10,
-        Run Memory ["-t"," <usedratio>%","-H","8192","-L","4096","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 10,
+        Run MultiCpu ["-t","<total0> <total1> <total2> <total3>","-L","30","-H","60","-h","#EB484F","-l","#5DE489","-n","#BABDB6","-w","3"] 10,
+        Run Memory ["-t"," <usedratio>%","-H","8192","-L","4096","-h","#EB484F","-l","#5DE489","-n","#BABDB6"] 10,
         --Run Swap ["-t","Swap: <usedratio>%","-H","1024","-L","512","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 10,
         --Run Network "eth0" ["-t","Net: <rx>, <tx>","-H","200","-L","10","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 10,
         Run Date " %a %b %_d %l:%M" "date" 10,
@@ -39,5 +39,5 @@ Config {
     sepChar = "%",
     alignSep = "}{",
     --template = "%StdinReader% }{ %multicpu%   %memory%   %eth0%    <fc=#b2b2ff>%volumelevel%</fc>   <fc=#FFFFCC>%date%</fc>"
-    template = "%StdinReader% }{ %multicpu%   %memory%   <fc=#FFFFCC>%date%</fc>"
+    template = "%StdinReader% }{ %multicpu%   %memory%   <fc=#BABDB6>%date%</fc>"
 }

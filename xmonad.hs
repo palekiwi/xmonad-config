@@ -35,7 +35,7 @@ myScreensaver = "/usr/bin/xscreensaver-command -l"
 mySelectScreenshot = "select-screenshot"
 
 -- The command to take a fullscreen screenshot.
-myScreenshot = "screenshot"
+myScreenshot = "gscreenshot"
 
 -- The command to use as a launcher, to launch commands that don't have
 -- preset keybindings.
@@ -141,9 +141,10 @@ myLayout = onWorkspace one l1 $
 -- Colors and borders
 -- Currently based on the ir_black theme.
 --
-myNormalBorderColor  = "#2E3436"
+primary = "#5294e2"
+myNormalBorderColor  = "#383C4A"
 --myFocusedBorderColor = "#7C7C7C"
-myFocusedBorderColor = "#29A5FF"
+myFocusedBorderColor = primary
 
 -- Colors for text and backgrounds of each tab when in "Tabbed" layout.
 tabConfig = defaultTheme {
@@ -158,10 +159,10 @@ tabConfig = defaultTheme {
 
 -- Color of current window title in xmobar.
 -- xmobarTitleColor = "#f3f4f5"
-xmobarTitleColor = "#EEEEEE"
+xmobarTitleColor = primary
 
 -- Color of current workspace in xmobar.
-xmobarCurrentWorkspaceColor = "#666666"
+xmobarCurrentWorkspaceColor = primary
 
 -- Width of the window border in pixels.
 myBorderWidth = 1
@@ -196,11 +197,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      spawn myLauncher)
 
   -- Take a selective screenshot using the command specified by mySelectScreenshot.
-  , ((modMask .|. shiftMask, xK_i),
+  , ((modMask .|. controlMask .|. shiftMask, xK_i),
      spawn mySelectScreenshot)
 
   -- Take a full screenshot using the command specified by myScreenshot.
-  , ((modMask .|. controlMask .|. shiftMask, xK_i),
+  , ((modMask .|. shiftMask, xK_i),
      spawn myScreenshot)
 
   -- Mute volume.

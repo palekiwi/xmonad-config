@@ -23,4 +23,4 @@ dockapp_mode wmaker
 window_strut auto
 skip_taskbar 1
 icon_gravity NE
-background "#2E3436"
+background "#2F343F"
