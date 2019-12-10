@@ -53,9 +53,10 @@ one   = "\xf120"
 two   = "\xf268"
 three = "\xf27a"
 four  = "\xf1b2"
-five  = "\xf17a"
+five  = "\xf008"
+six   = "\xf17a"
 
-myWorkspaces = [one,two,three,four,five] ++ map show [6..9]
+myWorkspaces = [one,two,three,four,five,six] ++ map show [7..9]
 
 
 ------------------------------------------------------------------------
