@@ -25,7 +25,7 @@ import qualified Data.Map        as M
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal = "/usr/bin/mate-terminal"
+myTerminal = "/usr/bin/urxvt"
 
 -- The command to lock the screen or show the screensaver.
 myScreensaver = "/usr/bin/xscreensaver-command -l"
