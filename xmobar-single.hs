@@ -15,8 +15,10 @@ Config {
     -- right_padding = num_icons * icon_size
     -- right_padding = 12 * 23 = 276
     -- Example: position = TopP 0 276
+    --position = TopP 0 240,
     position = TopP 0 240,
-    font = "xft:SFNS Display:size=10,FontAwesome:size=10",
+    --font = "xft:SFNS Display:size=10,FontAwesome:size=10",
+    font = "xft:Ubuntu:style=Medium:size=10,Font Awesome 5 Free:style=Solid:size=10,Font Awesome 5 Brands:style=Regular:size=10",
     --font = "xft:ubuntu-10",
     --additionalFonts = [ "xft:FontAwesome:pixelsize=13" ],
     bgColor = "#2F343F",
@@ -39,5 +41,5 @@ Config {
     sepChar = "%",
     alignSep = "}{",
     --template = "%StdinReader% }{ %multicpu%   %memory%   %eth0%    <fc=#b2b2ff>%volumelevel%</fc>   <fc=#FFFFCC>%date%</fc>"
-    template = "%StdinReader% }{ %multicpu%   %memory%   <fc=#BABDB6>%date%</fc>"
+    template = "%StdinReader% }{ %multicpu%   %memory%   <fc=#D3D7CF>%date%</fc>"
 }

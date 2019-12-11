@@ -51,9 +51,9 @@ myXmobarrc = "~/.xmonad/xmobar-single.hs"
 --
 one   = "\xf120"
 two   = "\xf268"
-three = "\xf27a"
+three = "\xf4ad"
 four  = "\xf1b2"
-five  = "\xf008"
+five  = "\xf87c"
 six   = "\xf17a"
 
 myWorkspaces = [one,two,three,four,five,six] ++ map show [7..9]
