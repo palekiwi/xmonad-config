@@ -75,7 +75,7 @@ myWorkspaces = [one,two,three,four,five,six] ++ map show [7..9]
 --
 myManageHook = composeAll
     [ className =? "Chromium"           --> doShift two
-    , className =? "Google-chrome"      --> doShift two
+    --, className =? "Google-chrome"      --> doShift two
     , resource  =? "desktop_window"     --> doIgnore
     , className =? "Pidgin"             --> doShift three
     , className =? "Thunderbird"        --> doShift three
