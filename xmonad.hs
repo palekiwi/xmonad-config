@@ -207,15 +207,15 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   -- Mute volume.
   , ((0, xF86XK_AudioMute),
-     spawn "amixer -q set Master toggle")
+     spawn "amixer -q set Master toggle ")
 
   -- Decrease volume.
   , ((0, xF86XK_AudioLowerVolume),
-     spawn "amixer -q set Master 5%-")
+     spawn "amixer -q set Master 5%- && volnoti-show $(amixer get Master | grep -Po '[0-9]+(?=%)' | tail -1)")
 
   -- Increase volume.
   , ((0, xF86XK_AudioRaiseVolume),
-     spawn "amixer -q set Master 5%+")
+     spawn "amixer -q set Master 5%+ && volnoti-show $(amixer get Master | grep -Po '[0-9]+(?=%)' | head -1)")
 
   -- Mute volume.
   , ((modMask .|. controlMask, xK_m),
