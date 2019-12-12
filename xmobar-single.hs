@@ -18,7 +18,7 @@ Config {
     --position = TopP 0 240,
     position = TopP 0 240,
     --font = "xft:SFNS Display:size=10,FontAwesome:size=10",
-    font = "xft:Ubuntu:style=Medium:size=10,Font Awesome 5 Free:style=Solid:size=10,Font Awesome 5 Brands:style=Regular:size=10",
+    font = "xft:Ubuntu:style=Medium:size=11,Font Awesome 5 Free:style=Solid:size=10,Font Awesome 5 Brands:style=Regular:size=10",
     --font = "xft:ubuntu-10",
     --additionalFonts = [ "xft:FontAwesome:pixelsize=13" ],
     bgColor = "#2F343F",
