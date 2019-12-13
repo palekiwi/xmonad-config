@@ -229,14 +229,17 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask .|. controlMask, xK_k),
      spawn "amixer -q set Master 5%+")
 
-  {-
   -- Start pomodoro
-  , ((modMask, xK_F10),
-     spawn "python ~/Apps/i3-gnome-pomodoro/pomodoro-client.py start")
-  -- Stop pomodoro
-  , ((modMask, xK_F11),
-     spawn "python ~/Apps/i3-gnome-pomodoro/pomodoro-client.py stop")
-  -}
+  , ((modMask, xK_F5),
+     spawn "/home/pawel/.xmonad/bin/pomodoro start $(task rc.verbose: n)")
+
+  -- Finish pomodoro
+  , ((modMask, xK_F4),
+     spawn "/home/pawel/.xmonad/bin/pomodoro finish")
+  --
+  -- Clear pomodoro
+  , ((modMask, xK_F6),
+     spawn "/home/pawel/.xmonad/bin/pomodoro clear")
 
   -- Audio previous.
   , ((0, 0x1008FF16),

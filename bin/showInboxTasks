@@ -1,0 +1,5 @@
+#!/bin/sh
+
+count=$(task +PENDING count)
+
+echo "$count"
