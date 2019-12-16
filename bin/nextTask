@@ -1,0 +1,5 @@
+#!/bin/sh
+
+next=$(task rc.verbose: n)
+
+echo "$next"

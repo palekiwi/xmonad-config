@@ -37,7 +37,8 @@ Config {
         --Run Com "/home/pawel/.xmonad/bin/getMasterVolume" [] "volumelevel" 10,
         --Run Com "/home/pawel/.xmonad/bin/getMasterVolumePercent" [] "volumelevel" 10,
         Run Com "/home/pawel/.xmonad/bin/showInboxTasks" [] "inbox" 10,
-        Run Com "/home/pawel/.xmonad/bin/pomodoro" ["status", "-f", "%d    %c"] "count" 10,
+        Run Com "/home/pawel/.xmonad/bin/nextTask" [] "next" 10,
+        Run Com "/home/pawel/.xmonad/bin/pomodoro" ["status", "-f", "| %c"] "count" 10,
         Run Com "/home/pawel/.xmonad/bin/pomodoro" ["status", "-f", " %r"] "pomodoro" 10,
         Run StdinReader
     ],
@@ -45,5 +46,5 @@ Config {
     alignSep = "}{",
     --template = "%StdinReader% }{ %multicpu%   %memory%   %eth0%    <fc=#b2b2ff>%volumelevel%</fc>   <fc=#FFFFCC>%date%</fc>"
     --template = "%StdinReader% }{ %multicpu%   %memory%    <fc=#BABDB6>%volumelevel%</fc>   <fc=#D3D7CF>%date%</fc>"
-    template = "%StdinReader% }{ %multicpu%   %memory%    <fc=#f0c674>%inbox%</fc>   %count%  <fc=#f0c674>%pomodoro%</fc>    <fc=#D3D7CF>%date%</fc>"
+    template = "%StdinReader% }{ %multicpu%   %memory%        <fc=#5DE489>%inbox%</fc>  [ <fc=#f0c674>%next%</fc> ]   <fc=#f0c674>%pomodoro%</fc> %count%      <fc=#D3D7CF>%date%</fc>"
 }
