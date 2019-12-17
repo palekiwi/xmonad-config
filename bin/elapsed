@@ -1,0 +1,22 @@
+#!/bin/sh
+
+starttime=$(date -d $1 +%s)
+endtime=$(date -d $2 +%s)
+
+calculate() {
+  timenow=$(date +%s)
+  remaining=$(($timenow - $starttime))
+  total=$(($endtime - $starttime))
+  fraction=$(($remaining * 100/ $total))
+}
+
+while true; do
+  touch "/home/pawel/.elapsed"
+  if [ $(date +%s) -ge $endtime ]; then
+    echo "100" > "/home/pawel/.elapsed"
+    break
+  fi
+  calculate
+  echo "$fraction" > "/home/pawel/.elapsed"
+  sleep 1
+done
