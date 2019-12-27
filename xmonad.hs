@@ -231,15 +231,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   -- Start pomodoro
   , ((modMask, xK_F5),
-     spawn "/home/pawel/.xmonad/bin/pomodoro start $(task rc.verbose: n)")
+     spawn "/home/pawel/.xmonad/bin/pomo.sh start")
 
   -- Finish pomodoro
   , ((modMask, xK_F4),
-     spawn "/home/pawel/.xmonad/bin/pomodoro finish")
-  --
-  -- Clear pomodoro
-  , ((modMask, xK_F6),
-     spawn "/home/pawel/.xmonad/bin/pomodoro clear")
+     spawn "/home/pawel/.xmonad/bin/pomo.sh stop")
 
   -- Audio previous.
   , ((0, 0x1008FF16),
