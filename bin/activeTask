@@ -1,0 +1,5 @@
+#!/bin/sh
+
+active=$(task rc.verbose: a)
+
+echo "$active"
