@@ -8,6 +8,7 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
+import XMonad.Layout.Spacing
 import XMonad.Layout.Spiral
 import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
@@ -433,7 +434,7 @@ defaults = defaultConfig {
     mouseBindings      = myMouseBindings,
 
     -- hooks, layouts
-    layoutHook         = smartBorders $ myLayout,
+    layoutHook         = spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ smartBorders $ myLayout,
     manageHook         = myManageHook,
     startupHook        = myStartupHook
 }

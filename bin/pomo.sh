@@ -52,6 +52,7 @@ function pomo_start {
     # Start new pomo block (work+break cycle).
     test -e $(dirname $POMO) || mkdir $(dirname $POMO)
     touch $POMO
+    notify-send "Start Pomo"
 }
 
 function pomo_stop {
@@ -85,13 +86,19 @@ function pomo_pause {
     fi
 }
 
+function pomo_elapsed {
+    # functions the timer has elapsed
+    notify-send "End of Cycle"
+    rm -f $POMO
+    aplay /usr/share/sounds/purple/logout.wav
+}
+
 function pomo_update {
     # Update the time stamp on POMO a new cycle has started.
     running=$(pomo_stat)
     block_time=$(( (WORK_TIME+BREAK_TIME)*60 ))
     if [[ $running -ge $block_time ]]; then
-        notify-send "End of Cycle"
-        rm -f $POMO
+        pomo_elapsed
         #ago=$(( running % block_time )) # We should've started the new cycle a while ago?
         #mtime=$(${DATE_CMD} --date "@$(( $(date +%s) - ago))" +%m%d%H%M.%S)
         #touch -m -t $mtime $POMO
