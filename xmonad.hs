@@ -82,11 +82,12 @@ myManageHook = composeAll
     , className =? "Thunderbird"        --> doShift three
     , className =? "Gimp"               --> doShift four
     , className =? "Blender"            --> doShift four
-    , className =? "vlc"                --> doShift four
+    , className =? "vlc"                --> doShift five
+    , className =? "mpv"                --> doShift five
     , className =? "libreoffice-writer" --> doShift four
     , resource  =? "gpicview"           --> doFloat
     , className =? "MPlayer"            --> doFloat
-    , className =? "VirtualBox Manager" --> doShift five
+    , className =? "VirtualBox Manager" --> doShift six
     , className =? "Qemu-system-x86_64" --> doShift five
     , className =? "stalonetray"        --> doIgnore
     , isFullscreen --> (doF W.focusDown <+> doFullFloat)]
