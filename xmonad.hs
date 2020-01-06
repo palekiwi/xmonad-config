@@ -7,6 +7,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.Fullscreen
+import XMonad.Layout.Gaps
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
 import XMonad.Layout.Spiral
@@ -115,6 +116,7 @@ l0 = avoidStruts (
     noBorders (fullscreenFull Full)
 
 l1 = avoidStruts (
+    gaps [(U,128),(R,512),(L,512),(D,128)] $
     ThreeColMid 1 (3/100) (1/2) |||
     TwoPane (3/100) (1/2) |||
     Mirror (TwoPane (3/100) (1/2)) |||
@@ -315,6 +317,18 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask, xK_l),
      sendMessage Expand)
 
+  -- Gaps bindings
+  , ((modMask .|. controlMask, xK_g), sendMessage $ ToggleGaps)               -- toggle all gaps
+  --, ((modMask .|. controlMask, xK_t), sendMessage $ ToggleGap U)              -- toggle the top gap
+  --, ((modMask .|. controlMask, xK_n), sendMessage $ IncGap 5 R)               -- increment the right-hand gap
+  --, ((modMask .|. controlMask, xK_q), sendMessage $ DecGap 5 R)               -- decrement the right-hand gap
+  --, ((modMask .|. controlMask, xK_r), sendMessage $ ModifyGaps rotateGaps)    -- rotate gaps 90 degrees clockwise
+    , ((modMask .|. controlMask, xK_h), sendMessage $ weakModifyGaps halveHor)  -- halve the left and right-hand gaps
+    , ((modMask .|. controlMask, xK_d), sendMessage $ weakModifyGaps doubleHor)  -- halve the left and right-hand gaps
+  --, ((modMask .|. controlMask, xK_d), sendMessage $ modifyGap (*2) L)         -- double the left-hand gap
+  --, ((modMask .|. controlMask, xK_n), sendMessage $ setGaps [(U,128),(R,256),(L,256),(D,128)]) -- reset the GapSpec
+  --, ((modMask .|. controlMask, xK_b), sendMessage $ setGap 30 D)              -- set the bottom gap to 30
+
   -- Push window back into tiling.
   , ((modMask, xK_a),
      withFocused $ windows . W.sink)
@@ -346,6 +360,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     | (i, k) <- zip (XMonad.workspaces conf) ([xK_r, xK_s, xK_t, xK_w, xK_f, xK_p] ++ [xK_7 .. xK_9])
       , (f, m) <- [(W.greedyView, 0), (W.shift, controlMask)]]
 
+    where halveHor d i | d `elem` [L, R] = i `div` 2
+                       | otherwise       = i
+          doubleHor d i | d `elem` [L, R] = i * 2
+                        | otherwise       = i
+
 ------------------------------------------------------------------------
 -- Mouse bindings
 --
@@ -370,6 +389,8 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
 
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
   ]
+    where halveHor d i | d `elem` [L, R] = i `div` 2
+                       | otherwise       = i
 
 
 ------------------------------------------------------------------------
