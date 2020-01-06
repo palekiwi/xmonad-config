@@ -119,10 +119,9 @@ l1 = avoidStruts (
     gaps [(U,128),(R,512),(L,512),(D,128)] $
     ThreeColMid 1 (3/100) (1/2) |||
     TwoPane (3/100) (1/2) |||
-    Mirror (TwoPane (3/100) (1/2)) |||
-    Mirror (Tall 1 (3/100) (1/2)) |||
-    Full |||
-    spiral (6/7))
+    --Mirror (TwoPane (3/100) (1/2)) |||
+    --Mirror (Tall 1 (3/100) (1/2)) |||
+    Full)
 
 l2 = avoidStruts (
     TwoPane (3/100) (1/2) |||
@@ -275,7 +274,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   -- Jump to TwoPane
   , ((modMask, xK_n),
-    sendMessage $ JumpToLayout "TwoPane")
+     sendMessage $ JumpToLayout "TwoPane")
+
 
   --  Reset the layouts on the current workspace to default.
   , ((modMask .|. shiftMask, xK_space),
