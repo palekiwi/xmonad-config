@@ -334,7 +334,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask .|. controlMask, xK_u), sendMessage $ weakModifyGaps halveVer)  -- halve the left and right-hand gaps
   , ((modMask .|. controlMask, xK_e), sendMessage $ weakModifyGaps doubleVer)  -- halve the left and right-hand gaps
   --, ((modMask .|. controlMask, xK_d), sendMessage $ modifyGap (*2) L)         -- double the left-hand gap
-  --, ((modMask .|. controlMask, xK_n), sendMessage $ setGaps [(U,128),(R,256),(L,256),(D,128)]) -- reset the GapSpec
+  , ((modMask .|. controlMask, xK_n), sendMessage $ setGaps [(U,256),(R,512),(L,512),(D,256)]) -- reset the GapSpec
   --, ((modMask .|. controlMask, xK_b), sendMessage $ setGap 30 D)              -- set the bottom gap to 30
 
   -- Push window back into tiling.
