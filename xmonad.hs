@@ -329,8 +329,10 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   --, ((modMask .|. controlMask, xK_n), sendMessage $ IncGap 5 R)               -- increment the right-hand gap
   --, ((modMask .|. controlMask, xK_q), sendMessage $ DecGap 5 R)               -- decrement the right-hand gap
   --, ((modMask .|. controlMask, xK_r), sendMessage $ ModifyGaps rotateGaps)    -- rotate gaps 90 degrees clockwise
-    , ((modMask .|. controlMask, xK_h), sendMessage $ weakModifyGaps halveHor)  -- halve the left and right-hand gaps
-    , ((modMask .|. controlMask, xK_d), sendMessage $ weakModifyGaps doubleHor)  -- halve the left and right-hand gaps
+  , ((modMask .|. controlMask, xK_l), sendMessage $ weakModifyGaps halveHor)  -- halve the left and right-hand gaps
+  , ((modMask .|. controlMask, xK_h), sendMessage $ weakModifyGaps doubleHor)  -- halve the left and right-hand gaps
+  , ((modMask .|. controlMask, xK_u), sendMessage $ weakModifyGaps halveVer)  -- halve the left and right-hand gaps
+  , ((modMask .|. controlMask, xK_e), sendMessage $ weakModifyGaps doubleVer)  -- halve the left and right-hand gaps
   --, ((modMask .|. controlMask, xK_d), sendMessage $ modifyGap (*2) L)         -- double the left-hand gap
   --, ((modMask .|. controlMask, xK_n), sendMessage $ setGaps [(U,128),(R,256),(L,256),(D,128)]) -- reset the GapSpec
   --, ((modMask .|. controlMask, xK_b), sendMessage $ setGap 30 D)              -- set the bottom gap to 30
@@ -366,9 +368,13 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     | (i, k) <- zip (XMonad.workspaces conf) ([xK_r, xK_s, xK_t, xK_w, xK_f, xK_p] ++ [xK_7 .. xK_9])
       , (f, m) <- [(W.greedyView, 0), (W.shift, controlMask)]]
 
-    where halveHor d i | d `elem` [U,D,L,R] = i `div` 2
-                       | otherwise       = i
-          doubleHor d i | d `elem` [U,D,L,R] = i * 2
+    where halveHor d i  | d `elem` [L,R] = i `div` 2
+                        | otherwise       = i
+          doubleHor d i | d `elem` [L,R] = i * 2
+                        | otherwise       = i
+          halveVer d i  | d `elem` [U,D] = i `div` 2
+                        | otherwise       = i
+          doubleVer d i | d `elem` [U,D] = i * 2
                         | otherwise       = i
 
 ------------------------------------------------------------------------
