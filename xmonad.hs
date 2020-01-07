@@ -148,8 +148,8 @@ myLayout = onWorkspace one l1 $
 -- Currently based on the ir_black theme.
 --
 primary = "#5294e2"
-myNormalBorderColor  = "#383C4A"
---myFocusedBorderColor = "#7C7C7C"
+bgcolor = "#2f343f"
+myNormalBorderColor  = bgcolor
 myFocusedBorderColor = primary
 
 -- Colors for text and backgrounds of each tab when in "Tabbed" layout.
