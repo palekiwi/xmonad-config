@@ -29,6 +29,8 @@ import qualified Data.Map        as M
 --
 myTerminal = "urxvt"
 
+myBrowser = "google-chrome-stable"
+
 -- The command to lock the screen or show the screensaver.
 myScreensaver = "/usr/bin/xscreensaver-command -l"
 
@@ -190,6 +192,10 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   -- Start a terminal.  Terminal to start is specified by myTerminal variable.
   [ ((modMask, xK_Return),
      spawn $ XMonad.terminal conf)
+
+  -- Start a browser
+  , ((modMask, xK_i),
+     spawn myBrowser)
 
   -- Lock the screen using command specified by myScreensaver.
   , ((modMask .|. controlMask, xK_l),
